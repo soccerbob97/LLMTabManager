@@ -1,1 +1,1 @@
-Revolutionizing Tab Management with LLMs
+Revolutionizing Tab Management with LLMs.
