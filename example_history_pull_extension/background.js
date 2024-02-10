@@ -51,9 +51,16 @@ chrome.tabs.onCreated.addListener(tab => {
     console.log("executing script")
     chrome.scripting.executeScript({
       target: {tabId: currentTab.id},
-      files: ['highlightText.js']
+      files: ['highlightText.js'] // content script
     });
     console.log("script executed")
     }
   });
+});
+
+
+// listen for messages from the content script
+chrome.runtime.onMessage.addListener((message) => {
+  console.log('background worker Message received:', message);
+  // Here, you can add the code to send this data to your backend
 });
