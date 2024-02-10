@@ -1,0 +1,29 @@
+
+{
+    "manifest_version": 3,
+    "name": "Hello World",
+    "version": "1.0",
+    "description": "A 'Hello World' Chrome Extension",
+    "permissions": [
+        "history",
+        "bookmarks",
+        "tabs"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "hello.html",
+      "default_icon": {
+        "16": "/images/hello16.png",
+        "48": "/images/hello48.png",
+        "128": "/images/hello128.png"
+      }
+    },
+    "icons": {
+      "16": "/images/hello16.png",
+      "48": "/images/hello48.png",
+      "128": "/images/hello128.png"
+    }
+  }
+  
