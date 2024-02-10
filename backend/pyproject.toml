@@ -16,6 +16,8 @@ tqdm = "^4.66.1"
 pgvector = "^0.2.5"
 aiohttp = "^3.9.3"
 nest-asyncio = "^1.6.0"
+fastapi = {extras = ["all"], version = "^0.109.2"}
+uvicorn = "^0.27.1"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -33,3 +33,27 @@ function logBookmarks(bookmarks) {
     });
 }
 
+function activateTab(tabId) {
+  chrome.tabs.update(tabId, { active: true });
+}
+
+
+// on click activate example.com
+chrome.tabs.onCreated.addListener(tab => {
+  let text = "information";
+  console.log("Button clicked")
+  chrome.tabs.query({url: "https://example.com/*"}, function(tabs) {
+  if (tabs.length > 0) {
+    let currentTab = tabs[0]; // Get the ID of the first tab that matches
+    // this is incorrect if there is already a hash
+    activateTab(currentTab.id); // Activate the tab
+    // chrome.tabs.update(currentTab.id, { url: updatedUrl }); // Update the URL
+    console.log("executing script")
+    chrome.scripting.executeScript({
+      target: {tabId: currentTab.id},
+      files: ['highlightText.js']
+    });
+    console.log("script executed")
+    }
+  });
+});
