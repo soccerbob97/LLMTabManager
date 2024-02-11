@@ -8,7 +8,10 @@
         "history",
         "bookmarks",
         "tabs",
-        "scripting"
+        "scripting",
+        "downloads",
+        "storage",
+        "activeTab"
     ],
     "host_permissions": [
         "*://*/*"
@@ -17,12 +20,7 @@
       "service_worker": "background.js"
     },
     "action": {
-      "default_popup": "hello.html",
-      "default_icon": {
-        "16": "/images/hello16.png",
-        "48": "/images/hello48.png",
-        "128": "/images/hello128.png"
-      }
+      "default_title": "Click to show an alert"
     },
     "icons": {
       "16": "/images/hello16.png",
