@@ -8,7 +8,7 @@
 
     let query_prefix = "";
     let querying = true;
-    export let data;
+    export let data = {};
 
     let dummy_tab_data = [
         [1, "https://facebook.com", "Facebook"],
@@ -17,12 +17,13 @@
     let tabs = [...dummy_tab_data];
 
     async function searchTabs() {
+        console.log('searching tabs');
         if (query_prefix.length < 1) {
             return;
         }
         // querying = true;
-        let data = await fetch(`http://127.0.0.1:8000/query_similar_tabs?k=5&query_prefix=${query_prefix}`);
-        let json = await data.json();
+        let response = await fetch(`http://127.0.0.1:8000/query_similar_tabs?k=5&query_prefix=${query_prefix}&user=${data.user}`);
+        let json = await response.json();
         console.log(json);
         tabs = json;
     }

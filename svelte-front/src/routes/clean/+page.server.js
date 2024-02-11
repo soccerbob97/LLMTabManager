@@ -10,6 +10,7 @@ export function load({ cookies }) {
 	const user = cookies.get('user');
 
 	return {
+		dummy: 'dummy',
 		user: user
 	};
 }
