@@ -77,6 +77,10 @@ chrome.runtime.onMessage.addListener((message) => {
       console.log("tabs ", tabs)
       if (tabs.length > 0) {
         let tab = tabs.find(tab => tab.url.includes(message.url));
+        if (tab === undefined) {
+          // Use chrome.tabs.create() to open a new tab
+          chrome.tabs.create({url: message.url.concat("#:~:text=1000")});
+        }
         console.log("tab ", tab)
         console.log(`matching tab found: ${tab.id}`)
         activateTab(tab.id); // Activate the tab
