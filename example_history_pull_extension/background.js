@@ -63,4 +63,15 @@ chrome.tabs.onCreated.addListener(tab => {
 chrome.runtime.onMessage.addListener((message) => {
   console.log('background worker Message received:', message);
   // Here, you can add the code to send this data to your backend
+  if (message.type === 'jump') {
+    console.log(`jumping to ${message.url}`)
+    let query_url = message.url;
+    chrome.tabs.query({url: query_url}, function(tabs) {
+      if (tabs.length > 0) {
+        console.log(`matching tab found: ${tabs[0].id}`)
+        let currentTab = tabs[0]; // Get the ID of the first tab that matches
+        activateTab(currentTab.id); // Activate the tab
+      }
+    });
+  }
 });

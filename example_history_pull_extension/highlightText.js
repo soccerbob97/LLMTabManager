@@ -31,6 +31,6 @@ window.addEventListener('message', (event) => {
     // Log the message data
     console.log('Message from iframe:', event.data);
     // send on chrome message passing
-    chrome.runtime.sendMessage({message: event.data});
+    chrome.runtime.sendMessage(event.data);
   }
 });
