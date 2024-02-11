@@ -41,8 +41,8 @@ overlay.appendChild(resultsContainer);
 
 // Function to perform the search
 function performSearch(query) {
-    const apiKey = 'AIzaSyCnRVwDmCPmDTiidxXXlUymp8QIRIYUbm0';
-    const cx = '16624c8c8d1704979';
+    const apiKey = 'API KEY';
+    const cx = 'CX';
     const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(query)}`;
   
     fetch(url)
