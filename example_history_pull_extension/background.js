@@ -66,16 +66,6 @@ chrome.action.onClicked.addListener(tab => {
 });
 
 
-chrome.tabs.onCreated.addListener(tab => {
-  chrome.tabs.query({}, function(tabs) {
-    console.log("tabs ", tabs)
-    tabs.forEach(function(tab) {
-      //console.log("tab ", tab)
-      console.log(`Open tab: ${tab.url} - ${tab.title}`);
-    });
-  });
-});
-
 // listen for messages from the content script
 chrome.runtime.onMessage.addListener((message) => {
   console.log('background worker Message received:', message);
@@ -86,7 +76,7 @@ chrome.runtime.onMessage.addListener((message) => {
     chrome.tabs.query({}, function(tabs) {
       console.log("tabs ", tabs)
       if (tabs.length > 0) {
-        let tab = tabs.find(tab => tab.url.includes(`face`))
+        let tab = tabs.find(tab => tab.url.includes(message.url));
         console.log("tab ", tab)
         console.log(`matching tab found: ${tab.id}`)
         activateTab(tab.id); // Activate the tab
